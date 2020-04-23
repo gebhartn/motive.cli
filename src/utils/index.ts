@@ -11,7 +11,7 @@ interface Parsed {
   credentials?: Credentials
 }
 
-const parseConfig = (raw: string): Credentials => {
+export const parseConfig = (raw: string): Credentials => {
   const parsed: Parsed = toml.parse(raw)
 
   let credentials: Credentials = { username: '', password: '' }
@@ -29,7 +29,7 @@ const parseConfig = (raw: string): Credentials => {
 
 //! todo: make file path dynamic, read from .config/
 
-const readConfig = (): Credentials => {
+export const readConfig = (): Credentials => {
   const dir: string = path.join(os.homedir(), './.motive.toml')
   const file: string = fs.existsSync(dir) ? fs.readFileSync(dir, 'utf-8') : ''
 
@@ -38,4 +38,3 @@ const readConfig = (): Credentials => {
   return { username, password }
 }
 
-console.log(readConfig())
