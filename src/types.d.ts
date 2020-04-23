@@ -3,11 +3,15 @@ export interface Credentials {
   password: string
 }
 
-interface Auth {
+export interface Auth {
   status: number
   data: AuthPayload
 }
 
-interface AuthPayload {
+export interface AuthPayload {
   payload: string
+}
+
+export interface Parsed {
+  credentials?: Credentials
 }

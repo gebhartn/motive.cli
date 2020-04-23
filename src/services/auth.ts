@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Auth, Credentials } from './types'
+import { Auth, Credentials } from '../types'
 
 type AxiosPost = (endpoint: string) => (body: Credentials) => Promise<Auth>
 
