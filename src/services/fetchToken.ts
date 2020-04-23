@@ -1,5 +1,5 @@
 import readLineSync from 'readline-sync'
-import { readConfig } from'../utils
+import { readConfig } from '../utils'
 import { Credentials } from './types'
 
 //! Parse credentials from local filesystem
@@ -24,4 +24,17 @@ const getCommandLineCredentials = (): Credentials => {
   return { username, password }
 }
 
-export default getCommandLineCredentials
+//! Attempts to read file system for login credentials
+//! If the config is invalid, not found, or missing fields
+//! it will instead prompt the user for command line inputs
+
+const composeCredentials = (): Credentials => {
+  let credentials = getLocalCredentials()
+
+  if (!(credentials.username || credentials.password)) {
+    credentials = getCommandLineCredentials()
+  }
+
+  return credentials
+}
+
