@@ -9,4 +9,6 @@ yargs
   .command(Commands.handleAdd)
   .command(Commands.handleGet)
   .command(Commands.handleDelete)
+  .command(Commands.handleRegister)
   .help().argv
+
