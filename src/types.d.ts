@@ -10,6 +10,7 @@ export interface Auth {
 
 export interface AuthPayload {
   payload: string
+  err?: string
 }
 
 export interface Parsed {
