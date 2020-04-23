@@ -38,9 +38,14 @@ export const readConfig = (): Credentials => {
   return { username, password }
 }
 
+//! Write valid credentials to local config file
+//! Only called if status 200
+
 export const writeConfig = (data: Credentials) => {
+  const { username, password } = data
+
   const dir: string = path.join(os.homedir(), './.motive.toml')
-  const content: string = `[credentials]\nusername=${data.username}\npassword=${data.password}`
+  const content: string = `[credentials]\nusername=${username}\npassword=${password}`
 
   fs.writeFileSync(dir, content)
 }
