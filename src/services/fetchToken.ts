@@ -1,8 +1,15 @@
 import readLineSync from 'readline-sync'
+import { readConfig } from'../utils
+import { Credentials } from './types'
 
-interface Credentials {
-  username: string
-  password: string
+//! Parse credentials from local filesystem
+//! otherwise, get command line credentials
+
+const getLocalCredentials = (): Credentials => {
+  const config: Credentials = readConfig()
+  const { username, password } = config
+
+  return { username, password }
 }
 
 //! Read username and password from command line
