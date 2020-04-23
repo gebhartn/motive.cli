@@ -23,7 +23,7 @@ const getCommandLineCredentials = (): Credentials => {
 const composeCredentials = (): Credentials => {
   let credentials = Config.getConfig()
 
-  if (!(credentials.username || credentials.password)) {
+  if (!(credentials.username && credentials.password)) {
     credentials = getCommandLineCredentials()
   }
 
