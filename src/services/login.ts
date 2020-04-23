@@ -1,4 +1,4 @@
-import { Config, Credentials, Auth } from '../utils'
+import { Colors, Config, Credentials, Auth } from '../utils'
 
 import { AuthPayload } from '../types'
 
@@ -10,7 +10,8 @@ const login = async (): Promise<AuthPayload> => {
   const { status, data } = await Auth.loginRequest(credentials)
 
   if (status > 200) {
-    console.log(`\nInvalid credentials`)
+    Colors.printError(`\nInvalid credentials`)
+
     return { payload: '' }
   }
 
