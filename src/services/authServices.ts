@@ -23,3 +23,8 @@ const authenticationPost: AxiosPost = endpoint => async body => {
 
 export const loginRequest = authenticationPost('/auth/login')
 export const registerRequest = authenticationPost('/auth/register')
+
+export default {
+  loginRequest,
+  registerRequest,
+}
