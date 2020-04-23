@@ -1,6 +1,9 @@
 import readLineSync from 'readline-sync'
-import { readConfig } from '../utils'
-import { Credentials } from './types'
+
+import { readConfig, writeConfig } from '../utils'
+import { loginRequest } from './authServices'
+
+import { Credentials, AuthPayload } from './types'
 
 //! Parse credentials from local filesystem
 //! otherwise, get command line credentials
@@ -38,3 +41,20 @@ const composeCredentials = (): Credentials => {
   return credentials
 }
 
+//! Attempt to authenticate with the provided credentials.
+
+const fetchToken = async (): Promise<AuthPayload> => {
+  const credentials = composeCredentials()
+  const { status, data } = await loginRequest(credentials)
+
+  if (status > 200) {
+    console.log(`\nInvalid credentials`)
+    return { payload: '' }
+  }
+
+  writeConfig(credentials)
+
+  return data
+}
+
+export default fetchToken
