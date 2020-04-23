@@ -1,5 +1,4 @@
-import { Config, Credentials } from '../utils'
-import { loginRequest } from './auth'
+import { Config, Credentials, Auth } from '../utils'
 
 import { AuthPayload } from '../types'
 
@@ -7,7 +6,8 @@ import { AuthPayload } from '../types'
 
 const fetchToken = async (): Promise<AuthPayload> => {
   const credentials = Credentials.composeCredentials()
-  const { status, data } = await loginRequest(credentials)
+
+  const { status, data } = await Auth.loginRequest(credentials)
 
   if (status > 200) {
     console.log(`\nInvalid credentials`)

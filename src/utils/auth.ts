@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import { Auth, Credentials } from '../types'
 
 type AxiosPost = (endpoint: string) => (body: Credentials) => Promise<Auth>
@@ -27,6 +28,11 @@ const authenticationPost: AxiosPost = endpoint => async body => {
 //! Handle business logic inside of these functions
 //! Login gets called with every attempt to fetch a protected route
 
-export const loginRequest = authenticationPost('/auth/login')
-export const registerRequest = authenticationPost('/auth/register')
+const loginRequest = authenticationPost('/auth/login')
+const registerRequest = authenticationPost('/auth/register')
+
+export default {
+  loginRequest,
+  registerRequest,
+}
 
