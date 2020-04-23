@@ -1,8 +1,9 @@
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 
 import { Auth, Credentials } from '../types'
 
 type AxiosPost = (endpoint: string) => (body: Credentials) => Promise<Auth>
+type AxiosAuth = (token: string) => AxiosInstance
 
 //! Use this to compose functions against public routes
 //! Status code is used to handle errors in the request
@@ -31,8 +32,18 @@ const authenticationPost: AxiosPost = endpoint => async body => {
 const loginRequest = authenticationPost('/auth/login')
 const registerRequest = authenticationPost('/auth/register')
 
+const protectedRequest: AxiosAuth = token => {
+  const baseURL: string = process.env.BASE_URL || 'http://localhost:8000'
+  return axios.create({
+    baseURL,
+    headers: {
+      Authorization: token,
+    },
+  })
+}
+
 export default {
   loginRequest,
   registerRequest,
+  protectedRequest,
 }
-
