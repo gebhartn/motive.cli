@@ -5,8 +5,9 @@
   "license": "MIT",
   "bin": "./dist/index.js",
   "scripts": {
-    "todo": "ts-node -r dotenv/config src/index.ts",
-    "fetch": "ts-node -r dotenv/config src/services/fetchToken.ts"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:dev": "ts-node -r dotenv/config src/index.ts"
   },
   "dependencies": {
     "axios": "^0.19.2",
