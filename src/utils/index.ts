@@ -38,3 +38,9 @@ export const readConfig = (): Credentials => {
   return { username, password }
 }
 
+export const writeConfig = (data: Credentials) => {
+  const dir: string = path.join(os.homedir(), './.motive.toml')
+  const content: string = `[credentials]\nusername=${data.username}\npassword=${data.password}`
+
+  fs.writeFileSync(dir, content)
+}
