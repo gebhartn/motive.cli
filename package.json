@@ -1,9 +1,12 @@
 {
-  "name": "motive",
+  "name": "motive-cli",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
-  "bin": "./dist/index.js",
+  "bin": {
+    "motive": "./dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
