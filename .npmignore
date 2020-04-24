@@ -1,3 +1,13 @@
 node_modules/
 src/
+.env
+.git*
+.eslintrc.js
+.prettierrc.js
+.CODE_OF_CONDUCT.md
+demo.gif
+README.md
+LICENSE
+yarn-error.log
+tsconfig.json
 
