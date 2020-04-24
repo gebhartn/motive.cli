@@ -15,9 +15,9 @@ const builder = (yargs: any) => {
 }
 
 const handler = (argv: any) => {
-  Todo.deleteOne(argv.id).then(() =>
-    Colors.printError(`Deleted todo with id: ${argv.id}`)
-  )
+  Todo.deleteOne(argv.id)
+    .then(() => Colors.printError(`Deleted todo with id: ${argv.id}`))
+    .catch(err => Colors.printError(err.response.data.err))
 }
 
 export default {
