@@ -27,9 +27,11 @@ export const Todo = {
 
   deleteOne: async (id: string): Promise<any> => {
     const { payload } = await login()
-    const { data } = await Auth.protectedRequest(payload).delete(`/todo/${id}`)
+    const { data, status } = await Auth.protectedRequest(payload).delete(
+      `/todo/${id}`
+    )
 
-    return data
+    return { data, status }
   },
 
   makeOne: async (category: string, content: string): Promise<any> => {
@@ -42,4 +44,3 @@ export const Todo = {
     return data
   },
 }
-
