@@ -2,14 +2,31 @@
 
 Command line interface for the [motive.js](https://github.com/gebhartn/motive.js) API
 
-## Local testing
+![motive-cli](/demo.gif)
 
- - Clone this repository
- - `cd motive.js`
- - `npm install`
- - `npm run build`
- - `npm link`
- - `npm install -g .`
+## Get started
+
+Using [npm]():
+
+```js
+npm install -g motive-cli
+```
+
+Then from your terminal:
+
+```js
+// to see all available commands
+motive --help
+
+// to register
+motive register
+
+// to create a new todo
+motive add [topic] [content]
+
+// to delete an existing todo
+motive done [id]
+```
 
 ## Author
 
