@@ -5,7 +5,8 @@ Command line interface for the [motive.js](https://github.com/gebhartn/motive.js
 ## Local testing
 
  - Clone this repository
- - `cd motive/js`
+ - `cd motive.js`
+ - `npm install`
  - `npm run build`
  - `npm link`
  - `npm install -g .`
