@@ -9,7 +9,7 @@ type AxiosAuth = (token: string) => AxiosInstance
 //! Status code is used to handle errors in the request
 
 const authenticationPost: AxiosPost = endpoint => async body => {
-  const baseURL = process.env.BASE_URL || 'http://localhost:8000'
+  const baseURL = process.env.BASE_URL || 'https://motive-js.herokuapp.com'
 
   return axios
     .post(baseURL + endpoint, body)
@@ -33,7 +33,8 @@ const loginRequest = authenticationPost('/auth/login')
 const registerRequest = authenticationPost('/auth/register')
 
 const protectedRequest: AxiosAuth = token => {
-  const baseURL: string = process.env.BASE_URL || 'http://localhost:8000'
+  const baseURL: string =
+    process.env.BASE_URL || 'https://motive-js.herokuapp.com'
   return axios.create({
     baseURL,
     headers: {
