@@ -22,6 +22,10 @@ const handler = (argv: any) => {
   const topic = argv.topic
   const content = argv.content.join(' ').trim()
 
+  if (!(topic && content)) {
+    return Colors.printError(`\nYou must provide a topic and content`)
+  }
+
   Todo.makeOne(topic, content).then(() =>
     Colors.printSuccess('\nAdded a new todo')
   )
