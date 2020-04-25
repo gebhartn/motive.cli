@@ -1,7 +1,19 @@
 import { Todo } from '../services'
 import { Colors } from '../utils'
 
+import moment from 'moment'
+
 import { CommandModule } from 'yargs'
+
+//! Return duration it took to complete the todo
+
+const formatDate = (date: any) => {
+  const now = moment()
+  const then = moment(Date.parse(date))
+  const difference = moment.duration(now.diff(then))
+
+  return difference.humanize()
+}
 
 const command = 'done <id>'
 const describe = 'Deletes a todo by id'
@@ -16,7 +28,12 @@ const builder = (yargs: any) => {
 
 const handler = (argv: any) => {
   Todo.deleteOne(argv.id)
-    .then(() => Colors.printError(`Deleted todo with id: ${argv.id}`))
+    .then(({ data: { todo } }) => {
+      const success =
+        'It took you ' + formatDate(todo.createdAt) + ' to complete that!'
+
+      Colors.printSuccess(success)
+    })
     .catch(err => Colors.printError(err.response.data.err))
 }
 
