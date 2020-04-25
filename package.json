@@ -1,6 +1,6 @@
 {
   "name": "motive-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -13,9 +13,11 @@
     "start:dev": "ts-node -r dotenv/config src/index.ts"
   },
   "dependencies": {
+    "@types/moment": "^2.13.0",
     "axios": "^0.19.2",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
+    "moment": "^2.24.0",
     "readline-sync": "^1.4.10",
     "toml": "^3.0.0",
     "yargs": "^15.3.1"
