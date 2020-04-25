@@ -1,6 +1,8 @@
+import { CommandModule } from 'yargs'
+import moment from 'moment'
+
 import { Todo } from '../services'
 import { Colors } from '../utils'
-import { CommandModule } from 'yargs'
 
 const command = 'get [filter]'
 
