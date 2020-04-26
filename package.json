@@ -4,6 +4,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gebhartn/motive-cli"
+  },
   "bin": {
     "motive": "./dist/index.js"
   },
