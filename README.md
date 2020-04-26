@@ -21,6 +21,12 @@ motive --help
 // to register
 motive register
 
+// to login
+motive login
+
+// to filter
+motive get 'filter'
+
 // to create a new todo
 motive add [topic] [content]
 
