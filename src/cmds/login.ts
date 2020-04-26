@@ -8,13 +8,9 @@ const command = 'login'
 const describe = 'Login as an existing user'
 
 const handler = () => {
-  login()
-    .then(({ payload }) => {
-      if (payload) Colors.printSuccess('Success!')
-    })
-    .catch(() => {
-      Colors.printError(`Failed to login`)
-    })
+  login().then(({ payload }) => {
+    if (payload) Colors.printSuccess('\nSuccess!')
+  })
 }
 
 export default {

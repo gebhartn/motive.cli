@@ -26,9 +26,9 @@ const handler = (argv: any) => {
     return Colors.printError(`\nYou must provide a topic and content`)
   }
 
-  Todo.makeOne(topic, content).then(() =>
-    Colors.printSuccess('\nAdded a new todo')
-  )
+  Todo.makeOne(topic, content)
+    .then(() => Colors.printSuccess('\nAdded a new todo'))
+    .catch(() => null)
 }
 
 export default {

@@ -16,21 +16,25 @@ const builder = (yargs: any) => {
 
 const handler = (argv: any) => {
   if (argv.filter) {
-    Todo.getBy(argv.filter).then(({ todos }) => {
-      console.log(' ')
-      todos.forEach(({ id, category, content }: any) => {
-        Colors.printSuccess(`[${id}] [${category}] ${content}`)
+    Todo.getBy(argv.filter)
+      .then(({ todos }) => {
+        console.log(' ')
+        todos.forEach(({ id, category, content }: any) => {
+          Colors.printSuccess(`[${id}] [${category}] ${content}`)
+        })
+        console.log(' ')
       })
-      console.log(' ')
-    })
+      .catch(() => null)
   } else {
-    Todo.getAll().then(({ todos }) => {
-      console.log('TODOs: \n')
-      todos.forEach(({ id, category, content }: any) => {
-        Colors.printSuccess(`[${id}] [${category}] ${content}`)
+    Todo.getAll()
+      .then(({ todos }) => {
+        console.log('TODOs: \n')
+        todos.forEach(({ id, category, content }: any) => {
+          Colors.printSuccess(`[${id}] [${category}] ${content}`)
+        })
+        console.log(' ')
       })
-      console.log(' ')
-    })
+      .catch(() => null)
   }
 }
 
