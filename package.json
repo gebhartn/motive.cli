@@ -17,13 +17,14 @@
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "moment": "^2.24.0",
-    "readline-sync": "^1.4.10",
+    "prompt-sync": "^4.2.0",
     "toml": "^3.0.0",
     "yargs": "^15.3.1"
   },
   "devDependencies": {
     "@types/moment": "^2.13.0",
     "@types/node": "^13.13.2",
+    "@types/prompt-sync": "^4.1.0",
     "@types/readline-sync": "^1.4.3",
     "@types/yargs": "^15.0.4",
     "babel-eslint": "^10.1.0",
