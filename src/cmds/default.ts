@@ -6,17 +6,19 @@ const command = '$0'
 const describe = 'Default command, fetches all todos'
 
 const handler = () => {
-  Todo.getAll().then(({ todos }) => {
-    if (!todos.length) {
-      Colors.printError(`\nCouldn't find any todos`)
-    } else {
-      console.log(' ')
-      todos.forEach(({ id, category, content }: any) => {
-        Colors.printSuccess(`[${id}] [${category}] ${content}`)
-      })
-      console.log(' ')
-    }
-  })
+  Todo.getAll()
+    .then(({ todos }) => {
+      if (!todos.length) {
+        Colors.printError(`\nCouldn't find any todos`)
+      } else {
+        console.log(' ')
+        todos.forEach(({ id, category, content }: any) => {
+          Colors.printSuccess(`[${id}] [${category}] ${content}`)
+        })
+        console.log(' ')
+      }
+    })
+    .catch(() => null)
 }
 
 export default {
