@@ -1,21 +1,15 @@
-import readLineSync from 'readline-sync'
-
 import Config from './config'
 import Colors from './colors'
+import prompt from 'prompt-sync'
 
 import { Credentials } from '../types'
-
-//! Hides input from command line
-
-const readPassword = (str: string) =>
-  readLineSync.question(str, { hideEchoBack: true })
 
 //! Read username and password from command line
 //! Only use command line arguments if no locals
 
 const getCommandLineCredentials = (): Credentials => {
-  const username: string = readLineSync.question('Enter your username: ')
-  const password = readPassword('Enter your password: ')
+  const username: string = prompt()('Enter your username: ')
+  const password: string = prompt().hide('Enter your password: ')
 
   return { username, password }
 }
@@ -24,11 +18,11 @@ const getCommandLineCredentials = (): Credentials => {
 //! Returns empty Credentials if validation fails
 
 const validateRegistration = (): Credentials => {
-  let password
+  let password: string
 
-  const username: string = readLineSync.question('Enter your username: ')
-  const passOne: string = readPassword('Enter your password: ')
-  const passTwo: string = readPassword('Verify your password: ')
+  const username: string = prompt()('Enter your username: ')
+  const passOne: string = prompt().hide('Enter your password: ')
+  const passTwo: string = prompt().hide('Verify your password: ')
 
   if (!(passOne === passTwo)) {
     Colors.printError(`\nPasswords do not match`)
