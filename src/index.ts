@@ -10,5 +10,6 @@ yargs
   .command(Commands.handleGet)
   .command(Commands.handleDelete)
   .command(Commands.handleRegister)
+  .command(Commands.handleLogin)
   .help().argv
 

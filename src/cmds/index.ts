@@ -3,6 +3,7 @@ import handleDelete from './del'
 import handleAdd from './add'
 import handleDefault from './default'
 import handleRegister from './register'
+import handleLogin from './login'
 
 export const Commands = {
   handleGet,
@@ -10,4 +11,5 @@ export const Commands = {
   handleAdd,
   handleDefault,
   handleRegister,
+  handleLogin,
 }
